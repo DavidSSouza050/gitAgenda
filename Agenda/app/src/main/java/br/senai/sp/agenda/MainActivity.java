@@ -4,10 +4,16 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.List;
+
+import br.senai.sp.dao.ContatoDAO;
+import br.senai.sp.modelo.Contato;
 
 public class MainActivity extends AppCompatActivity {
     private ListView listaContatos;
@@ -30,10 +36,39 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        String[] contatos = {"David Silva", "ralapago marguinhos", "O Miranha", "Jubileo",
-                                "David Silva", "ralapago marguinhos", "O Miranha", "Jubileo"};
+//        listaContatos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//            }
+//        });
 
-        ArrayAdapter<String> contatoAdapiter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contatos);
-        listaContatos.setAdapter(contatoAdapiter);
+
+//        EXEPLO DE ADAPTER PARA ARRAY DE Strings
+//        String[] contatos = {"David Silva", "ralapago marguinhos", "O Miranha", "Jubileo",
+//                                "David Silva", "ralapago marguinhos", "O Miranha", "Jubileo"};
+//
+//        ArrayAdapter<String> contatoAdapiter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contatos);
+//        listaContatos.setAdapter(contatoAdapiter);
     }
+
+    @Override
+    protected void onResume() {
+        mostrarContato();
+        super.onResume();
+    }
+
+    private void mostrarContato(){
+        //***Pegando os contatos
+        ContatoDAO dao = new ContatoDAO(this);
+        List<Contato> contatos = dao.getContato();
+        dao.close();
+
+        //** Adaptando para a list view
+        ArrayAdapter<Contato> adapterContato = new ArrayAdapter<Contato>(this, android.R.layout.simple_list_item_1, contatos);
+        listaContatos.setAdapter(adapterContato);
+    }
+
+
+
 }

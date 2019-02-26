@@ -35,7 +35,7 @@ public class ContatoDAO extends SQLiteOpenHelper {
 
     }
 
-    private void salvar(Contato contato){
+    public void salvar(Contato contato){
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues dados = getContentValues(contato);
@@ -54,10 +54,10 @@ public class ContatoDAO extends SQLiteOpenHelper {
         return dados;
     }
 
-    public List<Contato> getGetContato() {
+    public List<Contato> getContato() {
         SQLiteDatabase db = getReadableDatabase();
 
-        String sql = "SELECT * FROM db_agenda_contato;";
+        String sql = "SELECT * FROM tbl_contato";
 
         Cursor c = db.rawQuery(sql, null);
 

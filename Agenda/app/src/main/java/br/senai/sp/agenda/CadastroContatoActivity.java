@@ -8,8 +8,11 @@ import android.view.MenuItem;
 import android.widget.Switch;
 import android.widget.Toast;
 
-public class CadastroContatoActivity extends AppCompatActivity {
+import br.senai.sp.dao.ContatoDAO;
+import br.senai.sp.modelo.Contato;
 
+public class CadastroContatoActivity extends AppCompatActivity {
+    CadastroContatoHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +32,12 @@ public class CadastroContatoActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menu_salvar:
-                    Toast.makeText(this, "salvo", Toast.LENGTH_LONG).show();
+                    Contato contato = helper.getContato();
+                    ContatoDAO dao = new ContatoDAO(this);
+
+                    dao.salvar(contato);
+
+                    Toast.makeText(this, contato.getNome() + " foi gravado salvo", Toast.LENGTH_LONG).show();
                 break;
 
             case R.id.menu_del:

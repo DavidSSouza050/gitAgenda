@@ -56,4 +56,9 @@ public class Contato {
     public void setLinkedin(String linkedin) {
         this.linkedin = linkedin;
     }
+
+    public String toString(){
+        return this.id + this.nome;
+    }
+
 }
