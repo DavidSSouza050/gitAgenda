@@ -26,4 +26,13 @@ public class CadastroContatoHelper {
         return contato;
     }
 
+    public void preencherFormulario (Contato contato){
+        txtNome.setText(contato.getNome());
+        txtEndereco.setText(contato.getEndereco());
+        txtTelefone.setText(contato.getTelefone());
+        txtLinkedin.setText(contato.getLinkedin());
+        txtEmail.setText(contato.getEmail());
+        this.contato = contato;
+    }
+
 }

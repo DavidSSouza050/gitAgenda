@@ -1,5 +1,6 @@
 package br.senai.sp.agenda;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +18,16 @@ public class CadastroContatoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_contato);
+
+        helper = new CadastroContatoHelper(this);
+
+        Intent intent = getIntent();
+
+        Contato contato = (Contato) intent.getSerializableExtra("contato");
+
+        if(contato != null){
+            helper.preencherFormulario(contato);
+        }
     }
 
     @Override

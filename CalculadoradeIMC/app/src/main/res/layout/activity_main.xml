@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_marginTop="24dp">
+
+  <LinearLayout
+      android:id="@+id/linear_caixas"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+      <android.support.design.widget.TextInputLayout
+          android:id="@+id/layout_txt_peso"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+          <EditText
+              android:id="@+id/txt_peso"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="32dp"
+              android:layout_marginRight="32dp"
+              android:hint="@string/peso"
+              android:layout_marginTop="16dp"
+              android:inputType="numberDecimal"
+              android:textAlignment="center"/>
+      </android.support.design.widget.TextInputLayout>
+
+      <android.support.design.widget.TextInputLayout
+          android:id="@+id/layout_txt_altura"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <EditText
+              android:id="@+id/txt_altura"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="32dp"
+              android:layout_marginRight="32dp"
+              android:hint="@string/altura"
+              android:layout_marginTop="24dp"
+              android:inputType="numberDecimal"
+              android:textAlignment="center"/>
+
+      </android.support.design.widget.TextInputLayout>
+
+
+
+  </LinearLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/card_resultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBlue"
+        android:layout_below="@+id/linear_caixas"
+        android:padding="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="48dp">
+
+        <TextView
+            android:id="@+id/view_imc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25.000"
+            android:layout_centerHorizontal="true"
+            android:textSize="48dp"
+            android:textColor="@color/colorWhite"/>
+
+        <TextView
+            android:id="@+id/view_resultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal"
+            android:layout_below="@id/view_imc"
+            android:layout_centerHorizontal="true"
+            android:textSize="24dp"
+            android:textColor="@color/colorWhite"/>
+
+        <TextView
+            android:id="@+id/view_resumo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resumo"
+            android:layout_below="@id/view_resultado"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:id="@+id/btn_calcular"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:src="@drawable/done"
+            android:background="@color/colorWhite"/>
+
+        <ImageButton
+            android:id="@+id/btn_limpar"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:src="@drawable/close18dp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

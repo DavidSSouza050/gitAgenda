@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Calculadora de IMC</string>
+    <string name="peso">Digite o seu peso!!</string>
+    <string name="altura">Digite o seu altura!!</string>
+    <string name="calcular">calcular</string>
+    <string name="limpar">Limpar</string>
+
+
+    <string name="abaixo_do_peso_1_titulo">
+        Abaixo do peso I
+    </string>
+    <string name="abaixo_do_peso_1">
+        Anorexia, Bulimia, Osteoporose e auto consumo de massa muscular.
+    </string>
+
+    <string name="abaixo_do_peso_titulo">
+        Abaixo Do peso
+    </string>
+    <string name="abaixo_do_peso_desc">
+        Transtorno digestivos, dabilidade, fadiga crômica, Stress, Ansiedade.
+    </string>
+
+    <string name="peso_normal_titulo">
+        Normal
+    </string>
+    <string name="peso_norma_desc">
+        Em bom estado geral, boa vitalidade e boa aparencia fisica.
+    </string>
+
+    <string name="acima_do_peso_titulo">
+        Acima do peso
+    </string>
+    <string name="acima_do_peso_desc">
+        Fadiga, problemas digestivos circulatórios, má ciculação, varies.
+    </string>
+
+    <string name="Obesidade_Grau_II_Titulo">
+        Obesidade Grau II
+    </string>
+    <string name="obesidade_Grau_II_desc">
+        Diabetes, antina de peito, enfarto, trombo flebites, arterosclerose, embolias, etc.
+    </string>
+
+    <string name="Obesidade_Grau_III_Titulo">
+        Obesidade Grau III
+    </string>
+    <string name="obesidade_Grau_III_desc">
+        Falta de ar, apneia, sonolência, trombose pulmonar, úlceras varicosas, cancro do cólon, refluxo esofágo entre outros.
+    </string>
+
+
+</resources>
