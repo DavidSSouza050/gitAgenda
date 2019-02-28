@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent cadastro = new Intent(MainActivity.this, CadastroActivity.class);
                 cadastro.putExtra("filme",  filme);
                 startActivity(cadastro);
-
-                Toast.makeText(MainActivity.this, String.valueOf(position), Toast.LENGTH_LONG).show();
             }
         });
     }

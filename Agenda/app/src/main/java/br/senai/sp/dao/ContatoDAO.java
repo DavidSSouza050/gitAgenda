@@ -14,13 +14,13 @@ import br.senai.sp.modelo.Contato;
 public class ContatoDAO extends SQLiteOpenHelper {
 
     public ContatoDAO(Context context) {
-        super(context, "db_agenda_contato", null, 1);
+        super(context, "db_agenda_contato", null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE tbl_contato (" +
-                "id INTERGER PRIMARY KEY, " +
+                "id INTEGER PRIMARY KEY, " +
                 "nome TEXT NOT NULL, " +
                 "endereco TEXT NOT NULL, " +
                 "telefone TEXT NOT NULL, " +
@@ -77,6 +77,21 @@ public class ContatoDAO extends SQLiteOpenHelper {
         return contatos;
     }
 
+    public void  excluir(Contato contato){
+        SQLiteDatabase db = getWritableDatabase();
 
+        String[] params = {String.valueOf(contato.getId())};
 
+        db.delete("tbl_contato", "id = ?", params);
+    }
+
+    public void atualizar(Contato contato) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues dados = getContentValues(contato);
+
+        String[] params = {String.valueOf(contato.getId())};
+
+        db.update("tbl_contato", dados, "id = ?", params);
+    }
 }

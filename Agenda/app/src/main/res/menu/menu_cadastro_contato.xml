@@ -13,10 +13,7 @@
         android:title="Salvar"
         android:icon="@drawable/ic_salvar"
         app:showAsAction="always" />
-    <item
-        android:title="Configuração">
 
-    </item>
 
 
 </menu>
