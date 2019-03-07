@@ -52,25 +52,24 @@ public class CadastroContatoActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.menu_salvar:
-                    if(helper.validar()){
+                    if(helper.validarVazio() && helper.validarPalavra(this)){
                         if (contato.getId() == 0) {
                             dao.salvar(contato);
-                            dao.close();
-                            finish();
-                            Toast.makeText(this, contato.getNome() + " foi Gravado salvo", Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, contato.getNome() + " foi Gravado", Toast.LENGTH_LONG).show();
                         } else {
                             dao.atualizar(contato);
-                            dao.close();
-                            finish();
-                            Toast.makeText(this, contato.getNome() + " foi Atualizado salvo", Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, contato.getNome() + " foi Atualizado", Toast.LENGTH_LONG).show();
                         }
+                        dao.close();
+                        finish();
                     }
                 break;
 
             case R.id.menu_del:
 
-                    final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
+                if(contato.getId() == 0){
+                    Toast.makeText(this, "Contato não existente", Toast.LENGTH_LONG).show();
+                }else{
                     AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(this);
                     caixaDialogo.setTitle("Exluindo um Contato");
                     caixaDialogo.setMessage("você tem certeza que quer excluir "+ contato.getNome() +" ?");
@@ -85,6 +84,8 @@ public class CadastroContatoActivity extends AppCompatActivity {
                     });
                     caixaDialogo.setNegativeButton("Não", null);
                     caixaDialogo.create().show();
+                }
+
 
                 break;
         }

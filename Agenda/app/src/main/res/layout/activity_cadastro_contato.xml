@@ -56,7 +56,7 @@
             android:id="@+id/txt_telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="phone"
             android:hint="Telefone"
             android:layout_marginTop="16dp"/>
 

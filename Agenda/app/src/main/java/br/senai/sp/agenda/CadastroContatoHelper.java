@@ -1,9 +1,11 @@
 package br.senai.sp.agenda;
 
+import android.content.Context;
 import android.support.design.widget.TextInputLayout;
 import android.widget.EditText;
 
 import br.senai.sp.modelo.Contato;
+import br.senai.sp.utils.ValidacaoNumeroLetra;
 
 public class CadastroContatoHelper {
     private EditText txtNome, txtEndereco, txtTelefone, txtEmail, txtLinkedin;
@@ -11,13 +13,11 @@ public class CadastroContatoHelper {
     private Contato contato;
 
     public CadastroContatoHelper(CadastroContatoActivity activity){
-
         layoutTxtNome = activity.findViewById(R.id.layout_txt_nome);
         layoutTxtEmail = activity.findViewById(R.id.layout_txt_email);
         layoutTxtEndereco = activity.findViewById(R.id.layout_txt_endereco);
         layoutTxtTelefone = activity.findViewById(R.id.layout_txt_telefone);
         layoutTxtLinkedin = activity.findViewById(R.id.layout_txt_linkedin);
-
 
         txtNome = activity.findViewById(R.id.txt_nome);
         txtEmail = activity.findViewById(R.id.txt_email);
@@ -45,7 +45,7 @@ public class CadastroContatoHelper {
         this.contato = contato;
     }
 
-    public boolean validar(){
+    public boolean validarVazio(){
         boolean validado = true;
 
         if(txtNome.getText().toString().isEmpty()){
@@ -89,5 +89,51 @@ public class CadastroContatoHelper {
         }
         return validado;
     }
+
+    public boolean validarPalavra(Context activity){
+        ValidacaoNumeroLetra validaPalavra = new ValidacaoNumeroLetra();
+        boolean palavraValidada = true;
+
+        String nome = txtNome.getText().toString();
+        String email = txtEmail.getText().toString();
+        String telefone = txtTelefone.getText().toString();
+        String linkedin = txtLinkedin.getText().toString();
+
+        if (validaPalavra.verificarLetra(activity, nome)){
+            layoutTxtNome.setErrorEnabled(true);
+            layoutTxtNome.setError("Preencha essa caixa Corretamente!!!");
+            palavraValidada = false;
+        }else{
+            layoutTxtNome.setErrorEnabled(false);
+        }
+
+        if(validaPalavra.verificarNumero(activity, telefone)){
+            layoutTxtTelefone.setErrorEnabled(true);
+            layoutTxtTelefone.setError("Preencha essa caixa Corretamente!!!");
+            palavraValidada = false;
+        }else{
+            layoutTxtTelefone.setErrorEnabled(false);
+        }
+
+        if(validaPalavra.verificarLetra(activity, linkedin)){
+            layoutTxtLinkedin.setErrorEnabled(true);
+            layoutTxtLinkedin.setError("Preencha essa caixa Corretamente!!!");
+            palavraValidada = false;
+        }else{
+            layoutTxtLinkedin.setErrorEnabled(false);
+        }
+
+        if(!email.matches(("[0-9a-zA-Z._-]+@[a-z]+.[a-z]+"))){
+            layoutTxtEmail.setErrorEnabled(true);
+            layoutTxtEmail.setError("Faça o E-mail de maneira correta!!");
+            palavraValidada = false;
+        }else{
+            layoutTxtEmail.setErrorEnabled(false);
+        }
+
+
+        return palavraValidada;
+    }
+
 
 }
