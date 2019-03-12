@@ -10,11 +10,15 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/titulo"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:text="Criar um contato"
+        android:text="Crie um contato"
         android:textSize="32dp"
         android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:paddingTop="9dp"
+        android:layout_margin="9dp"
         android:layout_centerHorizontal="true"/>
 
     <android.support.design.widget.TextInputLayout
@@ -28,7 +32,7 @@
             android:layout_height="wrap_content"
             android:hint="Nome"
             android:inputType="text"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="32dp"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -43,7 +47,7 @@
             android:layout_height="wrap_content"
             android:hint="Endereço"
             android:inputType="text"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="32dp"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -58,7 +62,7 @@
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:hint="Telefone"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="32dp"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -72,7 +76,7 @@
             android:layout_height="wrap_content"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="32dp"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -86,7 +90,7 @@
             android:layout_height="wrap_content"
             android:hint="Linkedin"
             android:inputType="textUri"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="32dp"/>
 
 
     </android.support.design.widget.TextInputLayout>

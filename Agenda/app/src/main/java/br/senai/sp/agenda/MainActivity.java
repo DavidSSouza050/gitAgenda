@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this, "ae boyyy", Toast.LENGTH_LONG).show;
                 Intent criarContato = new Intent(MainActivity.this, CadastroContatoActivity.class);
                 startActivity(criarContato);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
 
@@ -52,12 +53,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent abrirCadas = new Intent(MainActivity.this, CadastroContatoActivity.class);
                 abrirCadas.putExtra("contato", contato);
                 startActivity(abrirCadas);
-
             }
         });
 
             registerForContextMenu(listaContatos);
-//        EXEPLO DE ADAPTER PARA ARRAY DE Strings
+//        EXEMPLO DE ADAPTER PARA ARRAY DE Strings
 //        String[] contatos = {"David Silva", "ralapago marguinhos", "O Miranha", "Jubileo",
 //                                "David Silva", "ralapago marguinhos", "O Miranha", "Jubileo"};
 //

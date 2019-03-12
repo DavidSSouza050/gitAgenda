@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import br.senai.sp.dao.ContatoDAO;
@@ -18,7 +19,7 @@ import br.senai.sp.modelo.Contato;
 
 public class CadastroContatoActivity extends AppCompatActivity {
     CadastroContatoHelper helper;
-
+    private TextView tituloContato;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +27,14 @@ public class CadastroContatoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_contato);
 
         helper = new CadastroContatoHelper(this);
-
+        tituloContato = findViewById(R.id.titulo);
 
         Intent intent = getIntent();
 
         Contato contato = (Contato) intent.getSerializableExtra("contato");
 
         if(contato != null){
+            tituloContato.setText("Contato");
             helper.preencherFormulario(contato);
         }
     }
@@ -77,7 +79,7 @@ public class CadastroContatoActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dao.excluir(contato);
-                            Toast.makeText(CadastroContatoActivity.this, "contato foi Excluído", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CadastroContatoActivity.this, contato.getNome() + "contato foi Excluído", Toast.LENGTH_LONG).show();
                             dao.close();
                             finish();
                         }

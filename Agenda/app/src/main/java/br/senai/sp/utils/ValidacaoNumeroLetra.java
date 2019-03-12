@@ -1,6 +1,7 @@
 package br.senai.sp.utils;
 
 import android.content.Context;
+import android.view.Window;
 import android.widget.Toast;
 
 public class ValidacaoNumeroLetra {
@@ -24,11 +25,14 @@ public class ValidacaoNumeroLetra {
     public boolean verificarNumero(Context activity, String numero){
         int eLetra = 0;
         for(int cont = 0; cont < numero.length() ; cont++){
-            if(Character.isDigit(numero.charAt(cont)) || Character.isSpaceChar(numero.charAt(cont))){
+            if(Character.isDigit(numero.charAt(cont)) || Character.isSpaceChar(numero.charAt(cont)) || numero.charAt(cont) == 45){
+
             }else {
                 eLetra++;
             }
+
         }
+
         if(eLetra != 0){
             return true;
         }else{

@@ -90,6 +90,8 @@ public class CadastroContatoHelper {
         return validado;
     }
 
+
+
     public boolean validarPalavra(Context activity){
         ValidacaoNumeroLetra validaPalavra = new ValidacaoNumeroLetra();
         boolean palavraValidada = true;
@@ -113,14 +115,6 @@ public class CadastroContatoHelper {
             palavraValidada = false;
         }else{
             layoutTxtTelefone.setErrorEnabled(false);
-        }
-
-        if(validaPalavra.verificarLetra(activity, linkedin)){
-            layoutTxtLinkedin.setErrorEnabled(true);
-            layoutTxtLinkedin.setError("Preencha essa caixa Corretamente!!!");
-            palavraValidada = false;
-        }else{
-            layoutTxtLinkedin.setErrorEnabled(false);
         }
 
         if(!email.matches(("[0-9a-zA-Z._-]+@[a-z]+.[a-z]+"))){

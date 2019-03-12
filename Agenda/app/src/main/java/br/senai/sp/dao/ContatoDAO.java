@@ -47,7 +47,7 @@ public class ContatoDAO extends SQLiteOpenHelper {
         ContentValues dados = new ContentValues();
 
         dados.put("nome", contato.getNome());
-        dados.put("endereco", contato.getEmail());
+        dados.put("endereco", contato.getEndereco());
         dados.put("telefone", contato.getTelefone());
         dados.put("email", contato.getEmail());
         dados.put("linkedin", contato.getLinkedin());
@@ -57,7 +57,7 @@ public class ContatoDAO extends SQLiteOpenHelper {
     public List<Contato> getContato() {
         SQLiteDatabase db = getReadableDatabase();
 
-        String sql = "SELECT * FROM tbl_contato";
+        String sql = "SELECT * FROM tbl_contato ORDER BY nome";
 
         Cursor c = db.rawQuery(sql, null);
 
