@@ -2,6 +2,7 @@ package br.senai.sp.agenda;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -70,7 +71,7 @@ public class CadastroContatoActivity extends AppCompatActivity {
             case R.id.menu_del:
 
                 if(contato.getId() == 0){
-                    Toast.makeText(this, "Contato não existente", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Contato não existe", Toast.LENGTH_LONG).show();
                 }else{
                     AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(this);
                     caixaDialogo.setTitle("Exluindo um Contato");
@@ -88,6 +89,18 @@ public class CadastroContatoActivity extends AppCompatActivity {
                     caixaDialogo.create().show();
                 }
 
+
+                break;
+
+            case R.id.menu_ligar:
+
+                if(contato.getId() == 0){
+                    Toast.makeText(CadastroContatoActivity.this, "Contato não existe", Toast.LENGTH_LONG).show();
+                }else{
+                    Uri uri = Uri.parse("tel:" + contato.getTelefone());
+                    Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+                    startActivity(intent);
+                }
 
                 break;
         }
