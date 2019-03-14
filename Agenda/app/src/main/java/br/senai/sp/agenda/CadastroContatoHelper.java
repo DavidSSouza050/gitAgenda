@@ -109,7 +109,7 @@ public class CadastroContatoHelper {
             layoutTxtNome.setErrorEnabled(false);
         }
 
-        if(validaPalavra.verificarNumero(activity, telefone)){
+        if(!telefone.matches(("[0-9]{2}[ ]?9?[0-9]{4}-?[0-9]{4}"))){
             layoutTxtTelefone.setErrorEnabled(true);
             layoutTxtTelefone.setError("Preencha essa caixa Corretamente!!!");
             palavraValidada = false;

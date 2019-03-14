@@ -38,10 +38,9 @@ public class MainActivity extends AppCompatActivity {
         btNovoContato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "ae boyyy", Toast.LENGTH_LONG).show;
                 Intent criarContato = new Intent(MainActivity.this, CadastroContatoActivity.class);
                 startActivity(criarContato);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+//                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
 

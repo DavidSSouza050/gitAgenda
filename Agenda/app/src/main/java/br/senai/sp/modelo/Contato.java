@@ -60,7 +60,7 @@ public class Contato implements Serializable {
     }
 
     public String toString(){
-        return  this.nome;
+        return  this.nome + " - " + this.telefone;
     }
 
 }
