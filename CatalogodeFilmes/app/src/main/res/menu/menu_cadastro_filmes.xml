@@ -14,10 +14,7 @@
         android:icon="@drawable/ic_salvar"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/menu_configuracoes"
-        android:title="Configurações"
-        />
+
 
 
 

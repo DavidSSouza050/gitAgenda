@@ -1,6 +1,8 @@
 package br.senai.sp.catalogodefilmes;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -45,12 +47,12 @@ public class CadastroActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        final Filme filme = helper.getFilme();
+        final FilmeDAO dao = new FilmeDAO(this);
 
         switch (item.getItemId()){
             case R.id.menu_salvar:
-                Filme filme = helper.getFilme();
 
-                FilmeDAO dao = new FilmeDAO(this);
 
                 if(filme.getId() == 0){
                     dao.salvar(filme);
@@ -66,8 +68,26 @@ public class CadastroActivity extends AppCompatActivity {
                 break;
             case R.id.menu_del:
 
-                break;
-            case R.id.menu_configuracoes:
+                if(filme.getId() == 0){
+                    Toast.makeText(this, "Filme ainda não foi criado", Toast.LENGTH_LONG).show();
+                }else{
+
+                    AlertDialog.Builder caixaDialogo = new AlertDialog.Builder(this);
+                    caixaDialogo.setTitle("Exluindo um filme");
+                    caixaDialogo.setMessage("você tem certeza que quer excluir "+ filme.getTitulo() +"?");
+                    caixaDialogo.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dao.excluir(filme);
+                            Toast.makeText(CadastroActivity.this, filme.getTitulo() + " foi Excluído", Toast.LENGTH_LONG).show();
+                            dao.close();
+
+                        }
+                    });
+                    caixaDialogo.setNegativeButton("NÃO", null);
+                    caixaDialogo.create().show();
+                }
+
 
                 break;
             default:
