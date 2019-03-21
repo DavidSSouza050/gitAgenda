@@ -7,7 +7,7 @@
             <solid android:color="@color/ColorRed"/>
         </shape>
     </item>
-    <item android:drawable="@drawable/ic_add">
+    <item android:drawable="@drawable/ic_foto_galeria">
 
     </item>
 </layer-list>

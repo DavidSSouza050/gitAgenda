@@ -18,7 +18,6 @@
         android:id="@+id/bt_novo_fime"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:text="+"
         android:textSize="32dp"
         android:textColor="@android:color/white"
         android:layout_alignParentBottom="true"

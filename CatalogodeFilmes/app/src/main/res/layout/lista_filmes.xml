@@ -25,14 +25,19 @@
             android:text="titulo do filme"
             android:textSize="26sp"
             android:textStyle="bold"
+            android:ellipsize="end"
+            android:lines="1"
             android:textColor="@color/colorPrimaryDark"/>
 
         <TextView
             android:id="@+id/txt_diretor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
+            android:layout_margin="1dp"
             android:text="nome do diretor"
+            android:textSize="18sp"
+            android:ellipsize="end"
+            android:lines="1"
             android:textColor="@color/ColorRed"/>
 
     </LinearLayout>
