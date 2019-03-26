@@ -11,10 +11,20 @@ public class Filme implements Serializable {
     private String duracao;
     private String genero;
     private int nota;
+    private byte[] foto;
+
 
     //alt + insert = gera getter e setter
     public int getId() {
         return id;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
 
     public String getTitulo() {

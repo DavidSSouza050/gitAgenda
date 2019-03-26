@@ -1,16 +1,19 @@
 package br.senai.sp.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.List;
 
 import br.senai.sp.catalogodefilmes.R;
+import br.senai.sp.conversores.Imagem;
 import br.senai.sp.modelo.Filme;
 
 public class FilmesAdapter extends BaseAdapter {
@@ -40,20 +43,25 @@ public class FilmesAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 //        TextView xpto = new TextView(context);
-//        xpto.setText(filmes.get(position).getTitulo());
+//        xpto.setText(filmes.get(position).getTitulo())
 //
+        Filme filme = filmes.get(position);
+
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.lista_filmes, null);
 
         //Prenenchando os tribustos para a lista_filmes
         TextView txtTitulo = view.findViewById(R.id.txt_titulo_filme);
-        txtTitulo.setText(filmes.get(position).getTitulo());
+        txtTitulo.setText(filme.getTitulo());
 
         TextView txtDiretor = view.findViewById(R.id.txt_diretor);
-        txtDiretor.setText(filmes.get(position).getDiretor());
+        txtDiretor.setText(filme.getDiretor());
 
         RatingBar ratingBar = view.findViewById(R.id.rating_nota);
-        ratingBar.setProgress(filmes.get(position).getNota());
+        ratingBar.setProgress(filme.getNota());
+
+        ImageView imgFoto = view.findViewById(R.id.imagem_filme);
+        imgFoto.setImageBitmap(Imagem.arrayToBimap(filme.getFoto()));
 
         return view;
     }

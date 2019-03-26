@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,10 +26,13 @@ import br.senai.sp.dao.FilmeDAO;
 import br.senai.sp.modelo.Filme;
 
 public class CadastroActivity extends AppCompatActivity {
+
+    public static final int GALERIA_REQUEST = 1000;
     private  CadastroFilmeHelper helper;
     private  Button btn_camera;
     private  Button btn_galeria;
     private ImageView imgFoto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +58,9 @@ public class CadastroActivity extends AppCompatActivity {
         btn_galeria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(CadastroActivity.this, "chamando galeria", Toast.LENGTH_LONG).show();
                 Intent intentGaleria = new Intent(Intent.ACTION_GET_CONTENT);
                 intentGaleria.setType("image/*");
-                startActivityForResult(intentGaleria, 1000);
+                startActivityForResult(intentGaleria, GALERIA_REQUEST);
             }
         });
 
@@ -75,20 +78,25 @@ public class CadastroActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Toast.makeText(this, "A foto é essa",Toast.LENGTH_LONG).show();
 
-        try {
-            InputStream inputStream = getContentResolver()
-                    .openInputStream(data.getData());
+        if(resultCode != 0){
 
-            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            try {
+                InputStream inputStream = getContentResolver()
+                        .openInputStream(data.getData());
 
-            imgFoto.setImageBitmap(bitmap);
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+                imgFoto.setImageBitmap(bitmap);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
         }
+
+
+
     }
 
     @Override
@@ -108,19 +116,17 @@ public class CadastroActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.menu_salvar:
 
-
                 if(filme.getId() == 0){
                     dao.salvar(filme);
-                    dao.close();
                     Toast.makeText(this, filme.getTitulo() + " gravado com sucesso!", Toast.LENGTH_LONG).show();
-                    finish();
                 }else{
                     dao.atualizar(filme);
-                    dao.close();
                     Toast.makeText(this, filme.getTitulo() + " foi atualizado com sucesso!", Toast.LENGTH_LONG).show();
-                    finish();
                 }
+                dao.close();
+                finish();
                 break;
+
             case R.id.menu_del:
 
                 if(filme.getId() == 0){
