@@ -41,7 +41,7 @@ public class CadastroFilmeHelper {
         BitmapDrawable bitmapDrawable = (BitmapDrawable) imgFoto.getDrawable();
         Bitmap bm = bitmapDrawable.getBitmap();
         //reduzindo a imagem para não gastar dados
-        Bitmap bitmapRedizudo = Bitmap.createScaledBitmap(bm, 1500, 600, true);
+        Bitmap bitmapRedizudo = Bitmap.createScaledBitmap(bm, 300, 300, true);
         //crianto o modo de saida para a imagem
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         //comprimindo a imagem e lançando o modo de saida
