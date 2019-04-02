@@ -15,7 +15,7 @@ import br.senai.sp.modelo.Filme;
 public class FilmeDAO extends SQLiteOpenHelper {
 
     public FilmeDAO(Context context) {
-        super(context, "db_filme", null, 3);
+        super(context, "db_filme", null, 4);
     }
 
     @Override

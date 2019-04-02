@@ -10,6 +10,15 @@ public class Contato implements Serializable {
     private String endereco;
     private String email;
     private String linkedin;
+    private byte[] foto;
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
 
     public int getId() {
         return id;
@@ -62,5 +71,4 @@ public class Contato implements Serializable {
     public String toString(){
         return  this.nome + " - " + this.telefone;
     }
-
 }

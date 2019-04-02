@@ -19,7 +19,8 @@ public class Filme implements Serializable {
         return id;
     }
 
-    public byte[] getFoto() {
+    public byte[]
+    getFoto() {
         return foto;
     }
 

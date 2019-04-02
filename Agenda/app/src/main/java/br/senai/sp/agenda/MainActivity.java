@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import br.senai.sp.adapter.ContatoListAdapter;
 import br.senai.sp.dao.ContatoDAO;
 import br.senai.sp.modelo.Contato;
 
@@ -108,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
         dao.close();
 
         //** Adaptando para a list view
-        ArrayAdapter<Contato> adapterContato = new ArrayAdapter<Contato>(this, android.R.layout.simple_list_item_1, contatos);
+        ContatoListAdapter adapterContato = new ContatoListAdapter(this, contatos);
+
         listaContatos.setAdapter(adapterContato);
     }
 

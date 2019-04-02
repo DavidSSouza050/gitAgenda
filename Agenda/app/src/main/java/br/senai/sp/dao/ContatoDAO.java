@@ -14,7 +14,7 @@ import br.senai.sp.modelo.Contato;
 public class ContatoDAO extends SQLiteOpenHelper {
 
     public ContatoDAO(Context context) {
-        super(context, "db_agenda_contato", null, 2);
+        super(context, "db_agenda_contato", null, 3);
     }
 
     @Override
@@ -32,7 +32,8 @@ public class ContatoDAO extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        String sql = "ALTER TABLE tbl_contato ADD COLUMN foto BLOB";
+        db.execSQL(sql);
     }
 
     public void salvar(Contato contato){
@@ -51,6 +52,7 @@ public class ContatoDAO extends SQLiteOpenHelper {
         dados.put("telefone", contato.getTelefone());
         dados.put("email", contato.getEmail());
         dados.put("linkedin", contato.getLinkedin());
+        dados.put("foto", contato.getFoto());
         return dados;
     }
 
@@ -71,6 +73,7 @@ public class ContatoDAO extends SQLiteOpenHelper {
             contato.setTelefone(c.getString(c.getColumnIndex("telefone")));
             contato.setEmail(c.getString(c.getColumnIndex("email")));
             contato.setLinkedin(c.getString(c.getColumnIndex("linkedin")));
+            contato.setFoto(c.getBlob(c.getColumnIndex("foto")));
             contatos.add(contato);
         }
 
