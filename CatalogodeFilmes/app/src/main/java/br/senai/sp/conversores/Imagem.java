@@ -12,11 +12,11 @@ public class Imagem {
         return bitmap;
     }
 
-    public static byte[] bimapToArray(Bitmap bitmap){
-        byte[] imagemArray = null;
-
-        return  imagemArray;
-    }
+//    public static byte[] bimapToArray(Bitmap bitmap){
+//        byte[] imagemArray = null;
+//
+//        return  imagemArray;
+//    }
 
 
 }

@@ -18,32 +18,32 @@ public class ContatoListAdapter extends BaseAdapter {
     private Context context;
     private List<Contato> contatos;
 
+//    construtor para trazer as contantes para a class
     public ContatoListAdapter(Context context, List<Contato> contatos){
         this.context = context;
         this.contatos = contatos;
     }
-
-
+    //retornando a linha que o contato foi clickado
     @Override
     public int getCount() {
         return contatos.size();
     }
-
+    //retornando a posição do cadastro que foi clickado
     @Override
     public Object getItem(int position) {
         return contatos.get(position);
     }
-
+    //pegando a posição e o id
     @Override
     public long getItemId(int position) {
         return contatos.get(position).getId();
     }
-
+    //atribuindo os atributos nos lugares determinados pegando a posição
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //Criando varivel para facilitar digitção
         Contato contato = contatos.get(position);
-        //criando um inflate para inflar a lista crianda
+        //criando um inflate para inflar a lista criada
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.lista_contato, null);
 
@@ -57,8 +57,9 @@ public class ContatoListAdapter extends BaseAdapter {
         TextView txtTelefone = view.findViewById(R.id.txt_telefone_contato);
         txtTelefone.setText(contato.getTelefone());
 
-        ImageView imgFoto = view.findViewById(R.id.contato_imagemView);
-        imgFoto.setImageBitmap(Imagem.arrayToBimap(contato.getFoto()));
+        ImageView imgFoto = view.findViewById(R.id.imagem_contato);
+        imgFoto.setImageBitmap(Imagem.arrayToBitmap(contato.getFoto()));
+
 
 
         return view;
