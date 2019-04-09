@@ -131,7 +131,7 @@ public class CadastroContatoActivity extends AppCompatActivity {
                         break;
                     case REQUEST_CAMERA:
                         Bitmap bitmap = BitmapFactory.decodeFile(caminhpFoto);
-                        Bitmap bitmapReduzido = Bitmap.createScaledBitmap(bitmap, 500, 370, true);
+                        Bitmap bitmapReduzido = Bitmap.createScaledBitmap(bitmap, 300, 300, true);
                         img_foto_contato.setImageBitmap(bitmapReduzido);
 
                         break;

@@ -21,7 +21,7 @@ public class Imagem {
 
         // TRANSFORMANDO IMAGEM DE IMAGEVIEW PARA BITMAP
         Bitmap bitmap = ((BitmapDrawable) fotobitmap.getDrawable()).getBitmap();
-        Bitmap bitmapReduzido = bitmap.createScaledBitmap(bitmap, 500, 370, true);
+        Bitmap bitmapReduzido = bitmap.createScaledBitmap(bitmap, 300, 300, true);
 
         // CONVERTER O BITMAP EM UM BYTEARRAY
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

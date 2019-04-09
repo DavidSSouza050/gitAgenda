@@ -60,8 +60,6 @@ public class ContatoListAdapter extends BaseAdapter {
         ImageView imgFoto = view.findViewById(R.id.imagem_contato);
         imgFoto.setImageBitmap(Imagem.arrayToBitmap(contato.getFoto()));
 
-
-
         return view;
     }
 }
