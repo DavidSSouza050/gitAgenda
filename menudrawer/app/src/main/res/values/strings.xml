@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Menu Drawer</string>
+    <string name="open_drawar">Abrir</string>
+    <string name="close_drawar">Fechar</string>
+</resources>

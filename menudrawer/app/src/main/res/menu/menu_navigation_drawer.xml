@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:title="Entrada De Veiculos"
+            android:id="@+id/entrada_veiculo"
+            android:icon="@drawable/ic_entrada">
+
+        </item>
+
+        <item android:title="Saida de Veiculos"
+            android:id="@+id/saida_veiculo"
+            android:icon="@drawable/ic_saida">
+
+        </item>
+
+    </group>
+
+
+    <item android:title="Movimentoção"
+        android:id="@+id/item_movimentocao">
+
+            <menu>
+                    <item android:title="Cadastrar mensalista"
+                        android:id="@+id/cadastrar_mensalista"
+                        android:icon="@drawable/ic_mensalistas">
+
+                    </item>
+                    <item android:title="Receber Mensalista"
+                        android:id="@+id/receber_mensalista"
+                        android:icon="@drawable/ic_receber">
+
+                    </item>
+            </menu>
+
+    </item>
+
+
+</menu>
